@@ -1,0 +1,29 @@
+
+<div class="container">
+    <h1>Student List </h1>
+
+<ul *ngFor="let student of StudentList" class="list-group">
+    <li (click)="studentClick(student)" class="list-group-item bg-dark text-white">
+        {{student.id}} - {{student.name}}
+    </li> 
+</ul>
+</div>
+
+
+<style>
+    .li-btn{
+    margin: 20px;
+}
+
+.container{
+    h1{
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+</style>
+
+
+
+<router-outlet></router-outlet>

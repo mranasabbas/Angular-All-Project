@@ -1,0 +1,61 @@
+<button class="button-92">
+    ngSwitch
+</button> <br>
+<p class="description">ngSwitch is a directive used for conditional rendering. It is used to conditionally display
+    content based on the value of an expression. The ngSwitch directive is typically used with the ngSwitchCase and
+    ngSwitchDefault directives to define different cases and a default case.</p>
+
+<div [ngSwitch]="userRole">
+    <div *ngSwitchCase="'admin'">Welcome Admin!</div>
+    <div *ngSwitchCase="'user'">Welcome User!</div>
+    <div *ngSwitchDefault>Welcome Guest!</div>
+</div>
+
+<br>
+
+
+<div class='card'>
+    <div class='card-header'>
+      ngSwitch using ng-template
+    </div>
+    <div class="card-body">
+   
+      <select [(ngModel)]="selectedValue">
+        <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
+      </select>
+   
+      <div [ngSwitch]="selectedValue">
+        <ng-template [ngSwitchCase]="'One'">One is Selected</ng-template>
+        <ng-template [ngSwitchCase]="'Two'">Two is Selected</ng-template>
+        <ng-template [ngSwitchCase]="'Three'">Three is Selected</ng-template>
+        <ng-template [ngSwitchCase]="'Four'">Four is Selected</ng-template>
+        <ng-template [ngSwitchCase]="'Five'">Five is Selected</ng-template>
+        <ng-template ngSwitchDefault>This is Default</ng-template>
+      </div>
+   
+    </div>
+  </div>
+
+
+
+  <br>
+
+<style>
+    .description {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 10px;
+    }
+
+    .button-92 {
+        background: #000000;
+        color: white;
+        border: none;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: .1em .4em;
+        border-radius: 5px;
+        cursor: auto;
+    }
+</style>

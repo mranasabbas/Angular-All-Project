@@ -1,0 +1,93 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div>
+        <label for="firstname"> First Name</label>
+        <input type="text" id="firstname" formControlName="firstname" class="form-control" autocomplete="on">
+        <small style="color: red;" *ngIf="firstname && firstname.invalid && firstname.touched">Firstname Required!</small>
+      </div>
+  
+      <div>
+        <label for="lastname"> Last Name</label>
+        <input type="text" id="lastname" formControlName="lastname" class="form-control" autocomplete="on">
+        <small style="color: red;" *ngIf="lastname && lastname.invalid && lastname.touched">Firstname Required!</small>
+      </div>
+  
+      <div>
+        <label for="email"> Email </label>
+        <input type="email" id="email" formControlName="email" class="form-control" autocomplete="on">
+        <small style="color: red;" *ngIf="email && email.invalid && email.touched" class="text-danger">Invalid Email i.e: 'name123@example.com'</small>
+      </div>
+  
+      <div formGroupName="address">
+        <label for="street">Street Address</label>
+        <input type="text" id="street" formControlName="street" class="form-control">
+  
+        <div>
+          <label for="city">City:</label>
+          <input type="text" id="city" formControlName="city" class="form-control">
+    
+          <label for="zipCode">Zip Code:</label>
+          <input type="number" id="zipCode" formControlName="zipCode" class="form-control" inputmode="numeric">
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Submit</button>
+  
+    </div>
+  
+  </form>
+  
+  
+  <div class="container">
+  
+    <table class="table" *ngIf="dataTable.length > 0">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">City</th>
+          <th scope="col">Zip Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataTable">
+          <td>{{data.firstname}}</td>
+          <td>{{data.lastname}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.address.street}}</td>
+          <td>{{data.address.city}}</td>
+          <td>{{data.address.zipCode}}</td>
+        </tr>
+  
+      </tbody>
+    </table>
+  
+  </div>
+  
+  
+  <style>
+    div {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: inline-block;
+      width: 300px;
+      font-weight: bold;
+    }
+    
+    button {
+      margin-top: 10px;
+    }
+  
+    .form-group{
+      width: 80%;
+      margin: auto;
+      margin-top: 50px;
+      background-color: aliceblue;
+      padding: 30px;
+      border-radius: 10px;
+    }
+  </style>

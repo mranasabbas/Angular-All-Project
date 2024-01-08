@@ -1,0 +1,54 @@
+<div class="container">
+    <h3>
+        Read User Works
+    </h3>
+</div>
+
+<div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>{{success}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Update User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of newdata.data">
+        <td>{{ user.id }}</td>
+        <td>{{ user.fullname }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.mobile }}</td>
+        <td>
+          <button class="btn btn-success" [routerLink]="['/create-user',user.id]">Update</button>&nbsp;
+          <button class="btn btn-danger" (click)="deleteData(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <style>
+    .table{
+      width: 80%;
+      margin: auto;
+    }
+    .alert{
+      width: 80%;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+
+    .container{
+      text-align: center;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+
+  </style>

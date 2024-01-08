@@ -1,0 +1,44 @@
+<div appDirectiveFile [changeBGC]="'#ffa500'" [changeTextColor]="'#ffffff'">
+    <h3>
+        Custom Directive Works
+    </h3>
+    <p>
+        A custom directive is a way to extend and enhance the functionality of HTML elements or attributes in your
+        application. Directives in Angular are responsible for adding behavior to the DOM (Document Object Model) by
+        providing instructions to modify, update, or manipulate the elements they are attached to.
+    </p>
+    <button class="btn bg-primary" style="color: white !important;">
+        Change Style
+    </button>
+</div>
+
+<br>
+
+<button [ngClass]="{active: isActive, inActive: !isActive}" (click)="isActive = !isActive">Toggle State</button>
+
+<!--  CSS Code  -->
+
+<style>
+    div {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .inActive {
+        background-color: #fff;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+        color: #363636;
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    .active {
+        background-color: #0d6efd;
+        border: 1px solid #dbdbdb;
+        border-radius: 25px;
+        color: #ffffff;
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+</style>

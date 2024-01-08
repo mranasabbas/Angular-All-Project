@@ -1,0 +1,89 @@
+<div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{success}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- <form > -->
+<form [formGroup]="userForm">
+    <div class="form-group">
+        <div>
+            <label for="fullname"> First Name</label>
+            <input type="text" id="fullname" formControlName="fullname" class="form-control" autocomplete="on"
+                [class.is-invalid]="userForm.get('fullname')?.invalid && userForm.get('fullname')?.touched">
+            <ng-container *ngIf="userForm.get('fullname')?.invalid && userForm.get('fullname')?.touched">
+                <small style="color: red;" *ngIf="userForm.get('fullname')?.errors?.['required']">Firstname
+                    Required!</small>
+            </ng-container>
+        </div>
+
+        <div>
+            <label for="email"> Email </label>
+            <input type="email" id="email" formControlName="email" class="form-control" autocomplete="on"
+                [class.is-invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+            <ng-container *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                <small style="color: red;" *ngIf="userForm.get('email')?.errors?.['required']">Enter Email!</small>
+                <small style="color: red;" *ngIf="userForm.get('email')?.errors?.['pattern']">Follow Email
+                    Pattern!</small>
+            </ng-container>
+        </div>
+
+        <div>
+            <label for="mobile"> Mobile </label>
+            <input type="number" id="mobile" formControlName="mobile" class="form-control" autocomplete="on"
+                [class.is-invalid]="userForm.get('mobile')?.invalid && userForm.get('mobile')?.touched">
+
+            <ng-container *ngIf="userForm.get('mobile')?.invalid && userForm.get('mobile')?.touched">
+                <small style="color: red;" *ngIf="userForm.get('mobile')?.errors?.['required']">Mobile Required!</small>
+                <small style="color: red;" *ngIf="userForm.get('mobile')?.errors?.['min']">Please Enter 10 Digits of
+                    Phone Number!</small>
+            </ng-container>
+        </div>
+
+        <ng-container *ngIf="!getParamID">
+            <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary" 
+                (click)="onSubmit()">Submit</button>
+        </ng-container>
+        <ng-container *ngIf="getParamID">
+            <button type="submit" class="btn btn-dark"  (click)="onUpdate()">Update</button>
+        </ng-container>
+    </div>
+
+</form>
+
+
+
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: inline-block;
+        width: 300px;
+        font-weight: bold;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    .form-group {
+        width: 80%;
+        margin: auto;
+        margin-top: 50px;
+        background-color: aliceblue;
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+    .alert {
+        width: 80%;
+        margin: auto;
+    }
+</style>

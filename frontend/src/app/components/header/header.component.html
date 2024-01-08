@@ -1,0 +1,60 @@
+<div class="body">
+
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link"  [routerLink]="['/task-one']" [routerLinkActive]="['active']">Task One</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  [routerLink]="['/task-two']" [routerLinkActive]="['active']">Task Two</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  [routerLink]="['/task-three']" [routerLinkActive]="['active']">Task Three</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  [routerLink]="['/task-four']" [routerLinkActive]="['active']">Task Four</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  [routerLink]="['/blogs']" [routerLinkActive]="['active']">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/students']" [routerLinkActive]="['active']">Students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/student-data']" [routerLinkActive]="['active']" (click)="adminAuth.studentDataClick()">Student Data</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="/" [routerLinkActive]="['active']">Can Deactivate Route</a>
+              </li> -->
+              
+              
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</div>
+
+<style>
+  .navbar{
+    background-color: red;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+}
+
+.active{
+    color: blueviolet !important;
+    font-weight: 600;
+}
+</style>

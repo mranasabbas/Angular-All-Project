@@ -1,0 +1,99 @@
+<button class="button-92">
+    *ngFor Directives
+</button>
+
+<div class="description">
+    <p>The ngFor directive in Angular is used for iterating over a collection (such as an array or object) and
+        generating HTML elements for each item in the collection. It's a powerful tool for creating dynamic and flexible
+        templates. Here are some common use cases for ngFor</p>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <ng-container *ngIf="isLoader">
+            <tr>
+                <td>
+                    <div class="spinner-grow text-primary" role="status"></div>
+                    <div class="spinner-grow text-secondary" role="status"></div>
+                    <div class="spinner-grow text-success" role="status"></div>
+                    <div class="spinner-grow text-danger" role="status"></div>
+                    <div class="spinner-grow text-warning" role="status"></div>
+                    <div class="spinner-grow text-info" role="status"></div>
+                    <div class="spinner-grow text-light" role="status"></div>
+                    <div class="spinner-grow text-dark" role="status"></div>
+                </td>
+            </tr>
+        </ng-container>
+
+        <!-- <ng-container *ngIf="!isLoader; else isNotLoader2">
+            <ng-container *ngFor="let user of UserList">
+                <tr *ngIf="user.gender == 'female'">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.gender}}</td>
+                  </tr>
+            </ng-container>
+        </ng-container> -->
+
+        <ng-container *ngIf="!isLoader">
+            <ng-container *ngFor="let user of UserList">
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.gender}}</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+
+
+
+    </tbody>
+</table>
+
+<br>
+
+
+
+<!-- NG CONTENT DATA BINDING WITH PROPERTY -->
+
+<app-ng-content [users] = "UserList"></app-ng-content>
+
+
+
+<style>
+    .description {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 10px;
+    }
+
+    .button-92 {
+        background: #000000;
+        color: white;
+        border: none;
+        font-weight: 600;
+        font-size: 1.5rem;
+        cursor: auto;
+        padding: .1em .4em;
+        border-radius: 5px;
+    }
+
+    .table {
+        border: 1px solid rgb(206, 206, 206);
+        margin-top: 50px;
+        border-radius: 10px;
+    }
+</style>

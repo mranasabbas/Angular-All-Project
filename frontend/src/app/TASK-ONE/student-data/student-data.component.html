@@ -1,0 +1,126 @@
+<div class="container">
+
+  <button class="btn btn-primary back" [routerLink]="['/form']">Navigate To Form</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">User Detail</th>
+        <th scope="col">Add To Favorite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of newdata.users">
+        <td>{{ user?.id }}</td>
+        <td>{{ user?.firstName }}</td>
+        <td>{{ user?.lastName }}</td>
+        <td>{{ user?.age }}</td>
+        <td>{{ user?.gender }}</td>
+        <td>
+          <button type="button" class="btn" (click)="UserClicked(user)">
+            See Details
+          </button>
+        </td>
+        <td (click)="moveToFavorite(user)">
+          <button class="btn-fav">Add To Favorite</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<!-- Load More Feature Button -->
+
+  <div class="btn-div">
+    <button class="load-more " (click)="loadUsers()">Load More</button>
+  </div>
+  
+  
+  
+  <!-- Modal Pop - Up -->
+  
+  
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Specific User Details</h4>
+          <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of selectedUser">
+                <td>{{ user?.id }}</td>
+                <td>{{ user?.firstName }}</td>
+                <td>{{ user?.lastName }}</td>
+                <td>{{ user?.gender }}</td>
+                <td>{{ user?.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="onCloseHandled()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <!-- Favorite Users -->
+  
+  <h2> Favorite Users </h2>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Select</th> -->
+        <th scope="col">#ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Remove User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of favUser;">
+        <td>{{ user?.id }}</td>
+        <td>{{ user?.firstName }}</td>
+        <td>{{ user?.lastName }}</td>
+        <td>{{ user?.age }}</td>
+        <td>{{ user?.gender }}</td>
+        <td> 
+          <button (click)="removeItem(user)" class="btn-remove">Remove From Favorite</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+<router-outlet></router-outlet>

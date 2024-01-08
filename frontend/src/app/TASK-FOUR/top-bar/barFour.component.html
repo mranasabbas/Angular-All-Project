@@ -1,0 +1,86 @@
+<div class="container">
+    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Structural Directives</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Attribute
+                Directives</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Component
+                Directives</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-pipe-tab" data-bs-toggle="pill" data-bs-target="#pills-pipe"
+                type="button" role="tab" aria-controls="pills-pipe" aria-selected="false">Pipes</button>
+        </li>
+    </ul>
+
+
+
+
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <app-NGIF></app-NGIF>
+            <br>
+            <br>
+            <app-For></app-For>
+            <br>
+            <br>
+            <app-ngSwitch></app-ngSwitch>
+        </div>
+
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+            <app-customDir></app-customDir>
+
+        </div>
+
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="component">
+                <h3>
+                    Component Directives:
+                </h3>
+                <p>
+                    Special directives in Angular are called Components since this type of directive has a template or
+                    template URLs. In effect, it is a component directive that shows something in DOM.
+                </p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-pipe" role="tabpanel" aria-labelledby="pills-pipe-tab">
+            <div class="component">
+                <h3>
+                    Pipes
+                </h3>
+                <p>
+                    Pipes are a way to transform and format data before it is displayed in the template. Pipes can be
+                    used to perform tasks such as formatting dates, converting text to uppercase or lowercase, filtering
+                    lists, and more. Angular provides several built-in pipes, and you can also create custom pipes for
+                    your specific needs.
+                </p>
+            </div>
+            <br>
+
+            <app-pipes></app-pipes>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .component {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    .container ul li {
+    margin: 5px;
+}
+</style>
+

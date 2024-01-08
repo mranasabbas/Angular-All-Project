@@ -1,0 +1,39 @@
+<button class="button-92">
+    ngContent and ngContent Projection
+</button> <br>
+<p class="description">Parent to Child Data Binding of Users ( From ngFor to ngContent )</p>
+
+
+<ul class="list-group " *ngFor="let user of users">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{user.name}}
+        <span class="badge bg-primary rounded-pill">{{user.gender}}</span>
+    </li>
+</ul>
+
+
+
+
+
+<!-- CSS Styles -->
+
+<style>
+    .button-92 {
+        background: #000000;
+        color: white;
+        border: none;
+        font-weight: 600;
+        font-size: 1.5rem;
+        cursor: auto;
+        padding: .1em .4em;
+        border-radius: 5px;
+    }
+
+    .description {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 10px;
+    }
+</style>

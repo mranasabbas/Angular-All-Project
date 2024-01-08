@@ -1,0 +1,52 @@
+
+
+<div class="box">
+    <h5> "hello world" to uppercase</h5>
+    {{ "hello world" | uppercase }}
+    <br>
+    <br>
+    <h5> "HELLO WORLD" to lowercase</h5>
+    {{ "HELLO WORLD" | lowercase }}
+    <br><br>
+
+    <h5> Date in Pipes</h5>
+    <p>{{ currentDate | date }}</p>
+    <p>{{ currentDate | date: 'short' }}</p>
+    <p>{{ currentDate | date: 'long' }}</p>
+    <p>{{ currentDate | date: 'dd/MM/yy' }}</p>
+    <br>
+    <h5> Currency in Pipes</h5>
+    <p> Currency {{ 1222 | currency: 'PKR' }}</p>
+    <p> Currency in Dollar {{ 1222 | currency }}</p>
+    <p> Currency in pounds {{ 1222 | currency: '£' }}</p>
+
+</div>
+
+
+<!-- Below is Custom Pipes -->
+
+<br>
+
+<div class="box">
+    <h5>Custom Pipes</h5>
+    
+        <p>{{ 'Hello' | textPipe:'This is the appending Text' }}</p>
+        <p>{{ 'Angular' | textPipe:'Rocks! ( Rocks is the appending Text )' }}</p>
+</div>
+
+<br>
+
+
+
+
+<style>
+    .box{
+        border: 2px solid #f5f5f5;
+        padding: 20px;
+        border-radius: 20px;
+
+        h5{
+            color: #0d6efd;
+        }
+    }
+</style>
